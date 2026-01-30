@@ -2,13 +2,25 @@
 <html lang="<%= site.locale %>">
   <head>
     <%= render "head", metadata: site.metadata, title: data.title %>
-      </head>
-      <body class="flex flex-col min-h-screen bg-[#161a1d] text-white">
+  </head>
+  <body class="<%= data.layout %> <%= data.page_class %>">
     <%# <%= render Shared::Navbar.new(metadata: site.metadata, resource: resource) %> 
 
-    <main>
-      <%= yield %>
-    </main>
+    <div class="min-h-screen bg-[#161a1d] text-gray-300 flex flex-col items-center px-6 pt-24">
+      <div class="avatar mb-6">
+        <div class="w-24 rounded-full ring ring-base-300 ring-offset-base-200 ring-offset-2">
+          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+        </div>
+      </div>
+
+      <!-- Name -->
+      <h1 class="text-sm text-white tracking-widest uppercase text-base-content/60 mb-3">
+        Chandra Code
+      </h1>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
 
     <%= render "footer", metadata: site.metadata %>
   </body>
